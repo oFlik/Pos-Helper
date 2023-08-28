@@ -55,7 +55,7 @@ Como este projeto irá resolver um problema que eu venho enfrentando por vários
 
 ## Como utilizar
 
-Após clonar o código em seu editor, bastar rodar o comando ```flask run``` para inicializar o servidor local.
+Após clonar o repositório e instalar os requerimentos, bastar rodar o comando ```flask run``` para inicializar o servidor local.
 
 ## Considerações finais
 
