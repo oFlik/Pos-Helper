@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Exportar dados
+{% endblock %}
+
+{% block body %}
+<div class="col-md-10 mx-auto col-lg-5">
+    <div class="p-4 p-md-7 border rounded-3 bg-body-tertiary">
+        <div style="text-align: center;">
+            <h1>Exportar Dados</h1>
+        </div>
+        <form action="/exportar" method="POST" style="text-align: center;">
+            <h3>Selecionar Equipe</h3>
+            <br>
+            <label for="equipe">Equipe:</label>
+            <select name="equipe" required>
+                <option value="Equipe" selected disabled>Equipe</option>
+
+                {% for tecnico in tecnicos %}
+                <option value="{{ tecnico.name }}">{{ tecnico.name }}</option>
+                {% endfor %}
+
+            </select>
+            <button type="submit">Exportar</button>
+        </form>
+        <br>
+        <div style="text-align: center;">
+            <h6>{{ equipe }}</h6>
+        </div>
+        <br>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="col-3">Data</th>
+                    <th class="col-1">ID</th>
+                    <th class="col-4">Telefone</th>
+                    <th class="col-3">Feedback</th>
+                    <th class="col-3">Transcrição</th>
+                    <th class="col-1">Nota</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for avaliacao in avaliacoes %}
+                <tr>
+                    <td> {{ avaliacao.data }} </td>
+                    <td> {{ avaliacao.clientId }} </td>
+                    <td> {{ avaliacao.telefone }} </td>
+                    <td> {{ avaliacao.feedback }} </td>
+                    <td> {{ avaliacao.iteracao }} </td>
+                    <td> {{ avaliacao.nota }} </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br>
+        <div style="display: flex; justify-content: center;">
+            <form action="/" method="GET">
+                <button type="submit">Página Inicial</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

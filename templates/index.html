@@ -1,0 +1,114 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Pós Helper
+{% endblock %}
+
+{% block body %}
+<style>
+    .form-select {
+        width: 400px;
+        /* Defina a largura desejada */
+    }
+</style>
+
+<div class="col-md-10 mx-auto col-lg-5">
+    <form action="/" method="POST" class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
+        <div class="form-floating mb-3">
+            <div class="row mb-3">
+                <label for="equipe" class="col-sm-2 col-form-label">Team</label>
+                <select class="form-select" name="equipe" aria-label=".form-select-sm example" required="">
+                    <option value="Equipe" selected="" disabled="">Equipe</option>
+
+                    {% for tecnico in tecnicos %}
+                        <option value="{{ tecnico.name }}">{{ tecnico.name }}</option>
+                    {% endfor %}
+
+                </select>
+            </div>
+            <div class="row mb-2">
+                <label for="data" class="col-sm-2 col-form-label">Date</label>
+                <div class="col-sm-4">
+                    <input type="date" class="form-control" name="data" autofocus="on" required="">
+                </div>
+            </div>
+            <div class="row mb-2">
+                <label for="clientId" class="col-sm-2 col-form-label">ID</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" name="clientId" autocomplete="off" placeholder="ID"
+                        required="">
+                </div>
+            </div>
+            <div class="row mb-2">
+                <label for="telefone" class="col-sm-2 col-form-label">Phone</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" name="telefone" autocomplete="off"
+                        placeholder="(XX) XXXXX-XXXX" required="">
+                </div>
+            </div>
+            <div class="row mb-2">
+                <label for="feedback" class="col-sm-2 col-form-label">Feedback</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" name="feedback" placeholder="Feedback" required="">
+                </div>
+            </div>
+            <div class="row mb-2">
+                <label for="iteracao" class="col-sm-2 col-form-label">Description</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" name="iteracao" placeholder="Description" required="">
+                </div>
+            </div>
+            <fieldset class="row mb-2">
+                <legend class="col-form-label col-sm-2 pt-0">Note</legend>
+                <div class="col-sm-8">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="nota" value="0">
+                        <label class="form-check-label" for="0">
+                            0
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="nota" value="1">
+                        <label class="form-check-label" for="1">
+                            1
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="nota" value="2">
+                        <label class="form-check-label" for="2">
+                            2
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="nota" value="3">
+                        <label class="form-check-label" for="3">
+                            3
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="nota" value="4">
+                        <label class="form-check-label" for="4">
+                            4
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="nota" value="5">
+                        <label class="form-check-label" for="5">
+                            5
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <div style="text-align: center;">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            <br>
+            <div style="text-align: center;">
+                <h5>{{ inform_sucess }}</h5>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
