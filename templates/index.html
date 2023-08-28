@@ -16,7 +16,7 @@ Pós Helper
     <form action="/" method="POST" class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
         <div class="form-floating mb-3">
             <div class="row mb-3">
-                <label for="equipe" class="col-sm-2 col-form-label">Team</label>
+                <label for="equipe" class="col-sm-2 col-form-label">Equipe</label>
                 <select class="form-select" name="equipe" aria-label=".form-select-sm example" required="">
                     <option value="Equipe" selected="" disabled="">Equipe</option>
 
@@ -27,7 +27,7 @@ Pós Helper
                 </select>
             </div>
             <div class="row mb-2">
-                <label for="data" class="col-sm-2 col-form-label">Date</label>
+                <label for="data" class="col-sm-2 col-form-label">Data</label>
                 <div class="col-sm-4">
                     <input type="date" class="form-control" name="data" autofocus="on" required="">
                 </div>
@@ -40,7 +40,7 @@ Pós Helper
                 </div>
             </div>
             <div class="row mb-2">
-                <label for="telefone" class="col-sm-2 col-form-label">Phone</label>
+                <label for="telefone" class="col-sm-2 col-form-label">Telefone</label>
                 <div class="col-sm-4">
                     <input type="text" class="form-control" name="telefone" autocomplete="off"
                         placeholder="(XX) XXXXX-XXXX" required="">
@@ -53,55 +53,27 @@ Pós Helper
                 </div>
             </div>
             <div class="row mb-2">
-                <label for="iteracao" class="col-sm-2 col-form-label">Description</label>
+                <label for="iteracao" class="col-sm-2 col-form-label">Transcrição</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control" name="iteracao" placeholder="Description" required="">
+                    <input type="text" class="form-control" name="iteracao" placeholder="Transcrição" required="">
                 </div>
             </div>
             <fieldset class="row mb-2">
-                <legend class="col-form-label col-sm-2 pt-0">Note</legend>
+                <legend class="col-form-label col-sm-2 pt-0">Nota</legend>
                 <div class="col-sm-8">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="nota" value="0">
-                        <label class="form-check-label" for="0">
-                            0
-                        </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="nota" value="1">
-                        <label class="form-check-label" for="1">
-                            1
-                        </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="nota" value="2">
-                        <label class="form-check-label" for="2">
-                            2
-                        </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="nota" value="3">
-                        <label class="form-check-label" for="3">
-                            3
-                        </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="nota" value="4">
-                        <label class="form-check-label" for="4">
-                            4
-                        </label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="nota" value="5">
-                        <label class="form-check-label" for="5">
-                            5
-                        </label>
-                    </div>
+                    {% for i in range(6) %}
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="nota" value="{{ i }}">
+                            <label class="form-check-label" for="{{ i }}">
+                                {{ i }}
+                            </label>
+                        </div>
+                    {% endfor %}
                 </div>
             </fieldset>
             <br>
             <div style="text-align: center;">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Enviar</button>
             </div>
             <br>
             <div style="text-align: center;">
