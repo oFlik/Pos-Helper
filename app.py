@@ -64,11 +64,19 @@ def addEquipes():
     return render_template("equipes.html")
 
 
-@app.route("/deleteEquipes")
+@app.route("/deleteEquipes", methods=["GET", "POST"])
 def deleteEquipes():
-    db.execute("DELETE FROM equipes")
-    db.execute("UPDATE sqlite_sequence SET seq = 0 WHERE name = 'equipes';")
-    return redirect("/")
+    if request.method == "POST":
+        equipes = db.execute("SELECT name FROM equipes;")
+
+        db.execute("DELETE FROM equipes WHERE name = ?;", request.form.get("equipe"))
+
+        return render_template("deleteEquipes.html", equipes=equipes)
+    
+    else:
+        equipes = db.execute("SELECT name FROM equipes;")
+        return render_template("deleteEquipes.html", equipes=equipes)
+
 
 
 @app.route("/exportar", methods=["GET", "POST"])
