@@ -18,6 +18,10 @@ Todos os algoritmos foram implementados em Python, utilizando a tecnologia Flask
 
 O backend do site funciona através da implementação de um banco de dados relacional, onde envio informação para uma tabela e no fim seleciono as informações que quero, tudo feito através de comandos SQL.
 
+## Stack Utilizada
+[![My Skills](https://skillicons.dev/icons?i=py,html,css,bootstrap,flask,sqlite,git)](https://skillicons.dev)
+
+
 ## Página inicial
 
 Na página inicial posso inserir as informações citadas acima, todos os dados inseridos são enviados para um banco de dados que os mantém em segurança. Atualmente utilizo sqlite3, porém planejo transferir para MySQL em um futuro próximo.
